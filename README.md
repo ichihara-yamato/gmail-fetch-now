@@ -1,4 +1,4 @@
-# gmail-fetch-now (by NewsJapan Inc.)
+# gmail-fetch-now
 
 - 既存のGmailタブを再利用して `設定 > アカウントとインポート` を開く
 - なければ新規タブで開く
