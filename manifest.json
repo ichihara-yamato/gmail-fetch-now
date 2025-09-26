@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "gmail-fetch-now",
+  "version": "1.0.0",
+  "description": "既存のGmailタブを再利用して 設定>アカウントとインポート を開き、自動で「今すぐ確認」を実行します。",
+  "author": "NewsJapan Inc.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "tabs",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*"
+  ],
+  "action": {
+    "default_title": "Open Gmail Settings: Accounts & Import"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "commands": {
+    "_execute_action": {
+      "description": "Open/focus Gmail Settings > Accounts & Import"
+    }
+  }
+}

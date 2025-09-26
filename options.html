@@ -1,0 +1,41 @@
+
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gmail Fetch Now 設定</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; }
+    h1 { font-size: 18px; }
+    label { display:block; margin:12px 0 6px; font-weight:600;}
+    textarea, input[type="text"], input[type="number"] { width: 100%; padding:8px; box-sizing:border-box; }
+    .hint { color:#666; font-size:12px; }
+    button { padding:10px 16px; border:0; border-radius:8px; background:#1a73e8; color:#fff; cursor:pointer; margin-top:16px; }
+    .row { max-width: 720px; }
+    .chips { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
+    .chip { background:#eef3fe; border:1px solid #c7dafc; border-radius:999px; padding:4px 8px; font-size:12px; }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <h1>Gmail Fetch Now 設定</h1>
+    <p class="hint">Gmail「設定 &gt; アカウントとインポート」ページで「メールを今すぐ確認する」を自動クリックします。</p>
+
+    <label for="emails">対象メールアドレス（カンマ区切り。空欄なら全件）</label>
+    <textarea id="emails" rows="3" placeholder="例: info001@newsjapan.co.jp, yamato@newsjapan.co.jp"></textarea>
+    <div id="emailChips" class="chips"></div>
+
+    <label for="delay">クリック後の待機時間 (ms)</label>
+    <input id="delay" type="number" min="500" step="100" placeholder="1700">
+
+    <label for="labels">検出ラベル（カンマ区切り）</label>
+    <input id="labels" type="text" placeholder="メールを今すぐ確認する, Check mail now">
+    <p class="hint">UI言語が異なる場合はここに追加してください。</p>
+
+    <button id="save">保存</button>
+    <span id="status" class="hint"></span>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
